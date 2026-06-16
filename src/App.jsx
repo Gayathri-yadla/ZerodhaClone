@@ -1,25 +1,29 @@
 import './App.css'
-import Header from './Header.jsx'
+import Header from './Header'
 import Products from './Products.jsx'
+import Register from './Register.jsx'
+import Login from './Login.jsx'
+import Home from './Home.jsx'
+import About from './About.jsx'
+import {Routes,Route} from "react-router-dom"
+import {useState} from 'react'
 
-function App() {
-  let company="flipkart";
-  let pos="developer"
+function App() { 
+  const [searchquery,setsearchquery] = useState('')
   return (
     <>
-    <section style={{textAlign:"center"}}>
-      <Header/>
-     
-    <img src="https://zerodha.com/static/images/landing.svg"></img>
-    <h2>Invest in everything</h2>
-    <p>Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.</p>
-    <button id="btn">Sign up for free</button>
+    <section style={{textAlign:"center"}}  >
+   <Header   setsearchquery={setsearchquery}/>
     </section>
-    <section style={{display:"flex",justifyContent:"space-evenly"}}>
-      <Products/>
-      </section>
-    </>     
-  )
-}                     
 
+  <Routes>
+   <Route  path='/'  element={<Home/>} />
+   <Route path='/products'  element={<Products searchquery={searchquery}/>}  />
+   <Route path='/register'  element={<Register />} />
+   <Route path='/login'  element={<Login />} />
+   <Route path='/about'  element={<About />} />
+  </Routes>
+    </>
+  )
+}
 export default App

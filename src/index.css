@@ -1,8 +1,17 @@
+@import "tailwindcss";
+
 #btn{
-  color:white;
+  color: white;
   background-color: skyblue;
 }
 #btn:hover{
-  color:white;
+  color: white;
   background-color: black;
+}
+.change{
+  background-color: black;
+  color: white;
+}
+body{
+  text-align: center;
 }
